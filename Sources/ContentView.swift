@@ -1,6 +1,6 @@
 import SwiftUI
 
-private struct ClockLocation: Identifiable, Hashable {
+private struct ClockLocation: Identifiable {
     let id: String
     let country: String
     let city: String
