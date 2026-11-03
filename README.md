@@ -12,6 +12,9 @@ A SwiftUI world-clock iOS app showing live local times for:
 - Correct time-zone handling through Foundation
 - Persian calendar date display
 - Right-to-left Persian interface
+- Add, search, and remove cities from the in-app city list
+- Remember selected cities between launches
+- Includes Tehran, Bangkok, Moscow, Berlin, London, Dubai, Istanbul, Tokyo, New York, Los Angeles, Toronto, and Sydney
 - Dark gradient design with country flags and UTC offsets
 
 ## Open in Xcode
