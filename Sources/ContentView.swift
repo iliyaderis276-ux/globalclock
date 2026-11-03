@@ -105,6 +105,14 @@ struct ContentView: View {
         }
     }
 
+    private func localTimeString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_GB")
+        formatter.timeZone = .current
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+
     private func localTimeCard(now: Date) -> some View {
         VStack(alignment: .trailing, spacing: 8) {
             HStack {
@@ -119,10 +127,7 @@ struct ContentView: View {
                     .foregroundStyle(.white.opacity(0.65))
             }
 
-            Text(now.formatted(
-                Date.FormatStyle(date: .omitted, time: .shortened)
-                    .locale(Locale(identifier: "en_GB"))
-            ))
+            Text(localTimeString(now))
             .font(.system(size: 34, weight: .light, design: .rounded))
             .monospacedDigit()
             .foregroundStyle(.white)
@@ -150,27 +155,20 @@ private struct ClockCard: View {
     let date: Date
 
     private var timeText: String {
-        date.formatted(
-            Date.FormatStyle(date: .omitted, time: .omitted)
-                .hour(.twoDigits(amPM: .omitted))
-                .minute(.twoDigits)
-                .second(.twoDigits)
-                .timeZone(location.timeZone)
-                .locale(Locale(identifier: "en_GB"))
-        )
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_GB")
+        formatter.timeZone = location.timeZone
+        formatter.dateFormat = "HH:mm:ss"
+        return formatter.string(from: date)
     }
 
     private var dateText: String {
-        date.formatted(
-            Date.FormatStyle()
-                .weekday(.wide)
-                .day()
-                .month(.wide)
-                .year()
-                .calendar(Calendar(identifier: .persian))
-                .timeZone(location.timeZone)
-                .locale(Locale(identifier: "fa_IR"))
-        )
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "fa_IR")
+        formatter.calendar = Calendar(identifier: .persian)
+        formatter.timeZone = location.timeZone
+        formatter.dateFormat = "EEEE، d MMMM yyyy"
+        return formatter.string(from: date)
     }
 
     private var offsetText: String {
