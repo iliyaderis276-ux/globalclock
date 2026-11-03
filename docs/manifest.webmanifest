@@ -1,0 +1,19 @@
+{
+  "name": "ساعت جهانی",
+  "short_name": "ساعت جهانی",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090f1c",
+  "theme_color": "#090f1c",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
